@@ -37,10 +37,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        call()
 
-        // new code
+
+    }
 
 
+    private fun call(){
         val gridLayoutManager = GridLayoutManager(this, 2)
 
         val movieAdapter = MoviePageListAdapter(this)
@@ -49,9 +52,9 @@ class MainActivity : AppCompatActivity() {
         rv_movie_list.setHasFixedSize(true)
         rv_movie_list.addItemDecoration(
             DividerItemDecoration(
-                    rv_movie_list.context,
+                rv_movie_list.context,
                 (rv_movie_list.layoutManager as GridLayoutManager).orientation
-                    )
+            )
         )
         rv_movie_list.adapter = movieAdapter
 
@@ -109,8 +112,6 @@ class MainActivity : AppCompatActivity() {
         })
 
     }
-
-
 
     private fun getViewModel(): MovieListViewModel {
         return ViewModelProviders.of(this, object : ViewModelProvider.Factory {
