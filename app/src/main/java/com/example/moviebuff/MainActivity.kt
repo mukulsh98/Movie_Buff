@@ -5,7 +5,11 @@ import android.graphics.Color.red
 import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+
 import android.view.View
+import android.widget.Toast
+
+
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -17,10 +21,13 @@ import com.example.moviebuff.Api.RetrofitClient
 import com.example.moviebuff.Repository.MoviePageListRepo
 import com.example.moviebuff.Repository.NetworkState
 import com.example.moviebuff.movie_detail.singleMovie
+import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.movie_list_item.*
 
 class MainActivity : AppCompatActivity() {
+
+
 
     private lateinit var viewModel: MovieListViewModel
     lateinit var movieRepository: MoviePageListRepo
@@ -29,6 +36,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
         // new code
 
@@ -99,6 +107,7 @@ class MainActivity : AppCompatActivity() {
                 movieAdapter.setNetworkState(it)
             }
         })
+
     }
 
 
@@ -130,4 +139,7 @@ class MainActivity : AppCompatActivity() {
         shimmerFrameLayout.stopShimmer()
         super.onPause()
     }
+
+
+
 }
